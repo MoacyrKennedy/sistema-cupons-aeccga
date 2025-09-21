@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AECCGA - Apresentação do Sistema</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #2D7D32, #4CAF50);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(45, 125, 50, 0.3);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-left: 1rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2D7D32;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .system-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .system-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid #E1E5E9;
+            transition: transform 0.3s ease;
+        }
+
+        .system-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .system-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .system-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #FF6B35, #FF8A50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .system-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2D7D32;
+            margin-bottom: 0.5rem;
+        }
+
+        .system-subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2D7D32;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .screenshot-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .screenshot-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .screenshot-item {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 2px solid #E1E5E9;
+        }
+
+        .screenshot-mockup {
+            width: 100%;
+            height: 400px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-mockup {
+            width: 200px;
+            height: 380px;
+            background: #000;
+            border-radius: 25px;
+            padding: 4px;
+            position: relative;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 21px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .desktop-mockup {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            position: relative;
+        }
+
+        .browser-bar {
+            height: 30px;
+            background: #f1f1f1;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot.red {
+            background: #ff5f56;
+        }
+
+        .dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .dot.green {
+            background: #27ca3f;
+        }
+
+        .mockup-content {
+            padding: 1rem;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .tech-specs {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .spec-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .spec-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .spec-title {
+            font-weight: 600;
+            color: #2D7D32;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #FF6B35, #FF8A50);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #FF6B35;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .system-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <svg width="120" height="90" viewBox="0 0 100 75" fill="none">
+                    <!-- People icons -->
+                    <circle cx="25" cy="25" r="8" fill="white" />
+                    <rect x="20" y="30" width="10" height="15" rx="2" fill="white" />
+                    <ellipse cx="25" cy="50" rx="12" ry="3" fill="none" stroke="white" stroke-width="2" />
+
+                    <circle cx="50" cy="15" r="8" fill="white" />
+                    <rect x="45" y="20" width="10" height="15" rx="2" fill="white" />
+                    <ellipse cx="50" cy="40" rx="12" ry="3" fill="none" stroke="white" stroke-width="2" />
+
+                    <circle cx="75" cy="25" r="8" fill="white" />
+                    <rect x="70" y="30" width="10" height="15" rx="2" fill="white" />
+                    <ellipse cx="75" cy="50" rx="12" ry="3" fill="none" stroke="white" stroke-width="2" />
+
+                    <circle cx="38" cy="40" r="8" fill="white" />
+                    <rect x="33" y="45" width="10" height="15" rx="2" fill="white" />
+                    <ellipse cx="38" cy="65" rx="12" ry="3" fill="none" stroke="white" stroke-width="2" />
+
+                    <!-- Connection lines -->
+                    <line x1="30" y1="45" x2="35" y2="50" stroke="white" stroke-width="2" />
+                    <line x1="45" y1="35" x2="42" y2="45" stroke="white" stroke-width="2" />
+                    <line x1="55" y1="35" x2="70" y2="40" stroke="white" stroke-width="2" />
+                </svg>
+                <div class="logo-text">AECCGA</div>
+            </div>
+            <div class="subtitle">
+                ASSOCIAÇÃO EMPRESARIAL E<br />
+                COMUNITÁRIA DE CAMPO GRANDE<br />
+                E ADJACÊNCIAS
+            </div>
+            <h1 class="main-title">Sistema de Cupons e Benefícios</h1>
+            <p class="description">Conectando estabelecimentos e consumidores através de uma plataforma digital moderna
+            </p>
+        </div>
+
+        <!-- Visão Geral -->
+        <div class="section">
+            <h2 class="section-title">Visão Geral do Sistema</h2>
+            <div class="system-grid">
+                <div class="system-card">
+                    <div class="system-header">
+                        <div class="system-icon">📱</div>
+                        <h3 class="system-title">App Mobile</h3>
+                        <p class="system-subtitle">Para Consumidores</p>
+                    </div>
+                    <ul class="features-list">
+                        <li>Interface mobile-first com design intuitivo</li>
+                        <li>Catálogo completo de cupons e ofertas</li>
+                        <li>Sistema de cashback integrado</li>
+                        <li>Perfil personalizado do usuário</li>
+                        <li>Busca e filtros por categoria</li>
+                        <li>Notificações de novas ofertas</li>
+                        <li>Histórico de compras e economia</li>
+                    </ul>
+                </div>
+
+                <div class="system-card">
+                    <div class="system-header">
+                        <div class="system-icon">💻</div>
+                        <h3 class="system-title">Painel Web</h3>
+                        <p class="system-subtitle">Para Estabelecimentos</p>
+                    </div>
+                    <ul class="features-list">
+                        <li>Dashboard com métricas em tempo real</li>
+                        <li>Gestão completa de cupons</li>
+                        <li>Sistema de posts e comunicação</li>
+                        <li>Relatórios de performance</li>
+                        <li>Interface administrativa robusta</li>
+                        <li>Controle de campanhas</li>
+                        <li>Análise de engajamento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screenshots do App Mobile -->
+        <div class="section">
+            <h2 class="section-title">App Mobile - Telas Principais</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <div class="screenshot-title">Tela de Login</div>
+                    <div class="screenshot-mockup">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="mockup-content">
+                                    <div style="text-align: center; margin: 2rem 0;">
+                                        <div style="color: #2D7D32; font-weight: bold; font-size: 1.2rem;">AECCGA</div>
+                                        <div style="font-size: 0.6rem; margin: 0.5rem 0;">ASSOCIAÇÃO EMPRESARIAL
+                                            E<br />COMUNITÁRIA DE CAMPO GRANDE<br />E ADJACÊNCIAS</div>
+                                    </div>
+                                    <div style="margin: 1rem 0;">
+                                        <div style="margin-bottom: 0.5rem; font-size: 0.7rem;">E-mail</div>
+                                        <div
+                                            style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem;">
+                                            seu@email.com</div>
+                                    </div>
+                                    <div style="margin: 1rem 0;">
+                                        <div style="margin-bottom: 0.5rem; font-size: 0.7rem;">Senha</div>
+                                        <div
+                                            style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem;">
+                                            ••••••••</div>
+                                    </div>
+                                    <div
+                                        style="background: #2D7D32; color: white; padding: 0.7rem; border-radius: 4px; text-align: center; margin: 1rem 0; font-size: 0.7rem;">
+                                        Entrar</div>
+                                    <div
+                                        style="border: 2px solid #2D7D32; color: #2D7D32; padding: 0.7rem; border-radius: 4px; text-align: center; font-size: 0.7rem;">
+                                        Criar Conta</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Autenticação:</strong> Acesso seguro com e-mail e senha, opção de cadastro para novos
+                        usuários.</p>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-title">Tela Principal</div>
+                    <div class="screenshot-mockup">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="mockup-content">
+                                    <div style="margin-bottom: 1rem;">
+                                        <div style="font-weight: bold; color: #2D7D32; font-size: 0.9rem;">Olá, Maria!
+                                        </div>
+                                        <div style="font-size: 0.7rem; color: #666;">Descubra as melhores ofertas</div>
+                                    </div>
+                                    <div
+                                        style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 20px; margin-bottom: 1rem; font-size: 0.7rem;">
+                                        🔍 Buscar cupons...</div>
+                                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; overflow: hidden;">
+                                        <div
+                                            style="background: #FF6B35; color: white; padding: 0.3rem 0.6rem; border-radius: 10px; font-size: 0.6rem;">
+                                            Todos</div>
+                                        <div
+                                            style="background: #E1E5E9; padding: 0.3rem 0.6rem; border-radius: 10px; font-size: 0.6rem;">
+                                            Alimentação</div>
+                                        <div
+                                            style="background: #E1E5E9; padding: 0.3rem 0.6rem; border-radius: 10px; font-size: 0.6rem;">
+                                            Moda</div>
+                                    </div>
+                                    <div
+                                        style="border: 1px solid #ddd; border-left: 3px solid #2D7D32; padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                                        <div
+                                            style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                            <div>
+                                                <div style="font-weight: bold; font-size: 0.7rem;">30% OFF primeira
+                                                    compra</div>
+                                                <div style="font-size: 0.6rem; color: #666;">Padaria São José</div>
+                                            </div>
+                                            <div style="color: #FF6B35; font-weight: bold; font-size: 0.8rem;">30%</div>
+                                        </div>
+                                        <div style="font-size: 0.6rem; color: #666; margin-bottom: 0.5rem;">Válido para
+                                            compras acima de R$ 15,00</div>
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center;">
+                                            <div style="font-size: 0.5rem; color: #999;">Válido até 30/10/2025</div>
+                                            <div
+                                                style="background: #2D7D32; color: white; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.6rem;">
+                                                Usar</div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        style="border: 1px solid #ddd; border-left: 3px solid #2D7D32; padding: 1rem; border-radius: 8px;">
+                                        <div
+                                            style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                            <div>
+                                                <div style="font-weight: bold; font-size: 0.7rem;">Frete Grátis</div>
+                                                <div style="font-size: 0.6rem; color: #666;">Farmácia Central</div>
+                                            </div>
+                                            <div style="color: #FF6B35; font-weight: bold; font-size: 0.8rem;">R$0</div>
+                                        </div>
+                                        <div style="font-size: 0.6rem; color: #666; margin-bottom: 0.5rem;">Em compras
+                                            acima de R$ 50,00</div>
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center;">
+                                            <div style="font-size: 0.5rem; color: #999;">Válido até 15/11/2025</div>
+                                            <div
+                                                style="background: #2D7D32; color: white; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.6rem;">
+                                                Usar</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Home:</strong> Lista de cupons disponíveis, busca e filtros por categoria, interface
+                        clean e intuitiva.</p>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-title">Tela de Cashback</div>
+                    <div class="screenshot-mockup">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="mockup-content">
+                                    <div style="margin-bottom: 1rem;">
+                                        <div style="font-weight: bold; color: #2D7D32; font-size: 0.9rem;">Meu Cashback
+                                        </div>
+                                        <div style="font-size: 0.7rem; color: #666;">Acompanhe seus ganhos</div>
+                                    </div>
+                                    <div
+                                        style="background: linear-gradient(135deg, #FF6B35, #FF8A50); color: white; padding: 1.5rem; border-radius: 12px; text-align: center; margin-bottom: 1rem;">
+                                        <div style="font-size: 0.7rem; margin-bottom: 0.5rem;">Cashback Disponível</div>
+                                        <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">R$
+                                            127,50</div>
+                                        <div
+                                            style="background: white; color: #FF6B35; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.7rem; font-weight: bold; display: inline-block;">
+                                            Resgatar</div>
+                                    </div>
+                                    <div
+                                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                        <div
+                                            style="background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #ddd;">
+                                            <div style="font-size: 1.2rem; font-weight: bold; color: #2D7D32;">2.450
+                                            </div>
+                                            <div style="font-size: 0.6rem; color: #666;">Pontos Totais</div>
+                                        </div>
+                                        <div
+                                            style="background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #ddd;">
+                                            <div style="font-size: 1.2rem; font-weight: bold; color: #2D7D32;">R$ 340
+                                            </div>
+                                            <div style="font-size: 0.6rem; color: #666;">Total Economizado</div>
+                                        </div>
+                                    </div>
+                                    <div style="font-weight: bold; margin-bottom: 0.5rem; font-size: 0.8rem;">Histórico
+                                        de Cashback</div>
+                                    <div
+                                        style="border: 1px solid #ddd; padding: 0.8rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                                        <div
+                                            style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                                            <div>
+                                                <div style="font-size: 0.7rem; font-weight: bold;">Restaurante Sabor
+                                                    Caseiro</div>
+                                                <div style="font-size: 0.6rem; color: #666;">23/09/2025</div>
+                                            </div>
+                                            <div style="color: #2D7D32; font-weight: bold; font-size: 0.7rem;">+R$ 4,50
+                                            </div>
+                                        </div>
+                                        <div style="font-size: 0.6rem; color: #666;">5% de cashback sobre R$ 90,00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Cashback:</strong> Acompanhamento de ganhos, histórico de transações e sistema de resgate
+                        de pontos.</p>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-title">Perfil do Usuário</div>
+                    <div class="screenshot-mockup">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="mockup-content">
+                                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                                        <div
+                                            style="width: 60px; height: 60px; background: linear-gradient(135deg, #2D7D32, #4CAF50); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; margin: 0 auto 1rem;">
+                                            M</div>
+                                        <div style="font-weight: bold; font-size: 1rem;">Maria Silva</div>
+                                        <div style="font-size: 0.8rem; color: #666;">maria.silva@email.com</div>
+                                    </div>
+                                    <div
+                                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                        <div
+                                            style="background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #ddd;">
+                                            <div style="font-size: 1rem; font-weight: bold; color: #2D7D32;">Gold</div>
+                                            <div style="font-size: 0.6rem; color: #666;">Status</div>
+                                        </div>
+                                        <div
+                                            style="background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #ddd;">
+                                            <div style="font-size: 1rem; font-weight: bold; color: #2D7D32;">47</div>
+                                            <div style="font-size: 0.6rem; color: #666;">Cupons Usados</div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom: 0.8rem;">
+                                        <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">Nome
+                                            Completo</div>
+                                        <div
+                                            style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem;">
+                                            Maria Silva</div>
+                                    </div>
+                                    <div style="margin-bottom: 0.8rem;">
+                                        <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">E-mail
+                                        </div>
+                                        <div
+                                            style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem;">
+                                            maria.silva@email.com</div>
+                                    </div>
+                                    <div style="margin-bottom: 0.8rem;">
+                                        <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">
+                                            Telefone</div>
+                                        <div
+                                            style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem;">
+                                            (11) 99999-9999</div>
+                                    </div>
+                                    <div
+                                        style="background: #2D7D32; color: white; padding: 0.7rem; border-radius: 4px; text-align: center; margin: 0.5rem 0; font-size: 0.7rem;">
+                                        Salvar Alterações</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Perfil:</strong> Informações pessoais, estatísticas de uso e configurações da conta do
+                        usuário.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screenshots do Painel Web -->
+        <div class="section">
+            <h2 class="section-title">Painel Web - Interface Administrativa</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <div class="screenshot-title">Login do Estabelecimento</div>
+                    <div class="screenshot-mockup">
+                        <div class="desktop-mockup">
+                            <div class="browser-bar">
+                                <div class="browser-dots">
+                                    <div class="dot red"></div>
+                                    <div class="dot yellow"></div>
+                                    <div class="dot green"></div>
+                                </div>
+                            </div>
+                            <div class="mockup-content"
+                                style="padding: 2rem; background: linear-gradient(135deg, #2D7D32 0%, #FF6B35 100%); color: white; text-align: center;">
+                                <div
+                                    style="background: white; color: #333; padding: 2rem; border-radius: 16px; max-width: 300px; margin: 0 auto;">
+                                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                                        <div
+                                            style="color: #2D7D32; font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem;">
+                                            AECCGA</div>
+                                        <div style="font-size: 0.6rem; color: #2D7D32; margin-bottom: 1rem;">ASSOCIAÇÃO
+                                            EMPRESARIAL E<br />COMUNITÁRIA DE CAMPO GRANDE<br />E ADJACÊNCIAS</div>
+                                        <div style="color: #666; font-size: 0.8rem;">Painel de Estabelecimentos</div>
+                                    </div>
+                                    <div style="margin-bottom: 1rem; text-align: left;">
+                                        <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">E-mail
+                                            do Estabelecimento</div>
+                                        <div
+                                            style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem;">
+                                            estabelecimento@exemplo.com</div>
+                                    </div>
+                                    <div style="margin-bottom: 1rem; text-align: left;">
+                                        <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">Senha
+                                        </div>
+                                        <div
+                                            style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem;">
+                                            ••••••••</div>
+                                    </div>
+                                    <div
+                                        style="background: #2D7D32; color: white; padding: 0.7rem; border-radius: 4px; text-align: center; margin-bottom: 0.5rem; font-size: 0.7rem;">
+                                        Entrar</div>
+                                    <div
+                                        style="border: 2px solid #2D7D32; color: #2D7D32; padding: 0.7rem; border-radius: 4px; text-align: center; font-size: 0.7rem;">
+                                        Cadastrar Estabelecimento</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Autenticação:</strong> Login seguro para estabelecimentos parceiros com opção de
+                        cadastro.</p>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-title">Dashboard Principal</div>
+                    <div class="screenshot-mockup">
+                        <div class="desktop-mockup">
+                            <div class="browser-bar">
+                                <div class="browser-dots">
+                                    <div class="dot red"></div>
+                                    <div class="dot yellow"></div>
+                                    <div class="dot green"></div>
+                                </div>
+                            </div>
+                            <div class="mockup-content">
+                                <div
+                                    style="background: linear-gradient(135deg, #2D7D32, #4CAF50); color: white; padding: 1rem; margin: -1rem -1rem 1rem -1rem;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div style="font-weight: bold; font-size: 0.9rem;">AECCGA</div>
+                                        <div style="display: flex; gap: 1rem; font-size: 0.7rem;">
+                                            <span
+                                                style="background: rgba(255,255,255,0.2); padding: 0.3rem 0.6rem; border-radius: 4px;">Dashboard</span>
+                                            <span>Cupons</span>
+                                            <span>Posts</span>
+                                            <span>Sair</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="font-weight: bold; font-size: 1rem; margin-bottom: 0.3rem;">Dashboard
+                                    </div>
+                                    <div style="font-size: 0.7rem; color: #666;">Bem-vindo, Padaria São José</div>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                                    <div
+                                        style="background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #ddd; border-left: 4px solid #FF6B35;">
+                                        <div style="font-size: 1.2rem; font-weight: bold; color: #2D7D32;">23</div>
+                                        <div style="font-size: 0.6rem; color: #666;">Cupons Ativos</div>
+                                    </div>
+                                    <div
+                                        style="background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #ddd; border-left: 4px solid #FF6B35;">
+                                        <div style="font-size: 1.2rem; font-weight: bold; color: #2D7D32;">187</div>
+                                        <div style="font-size: 0.6rem; color: #666;">Cupons Utilizados</div>
+                                    </div>
+                                    <div
+                                        style="background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #ddd; border-left: 4px solid #FF6B35;">
+                                        <div style="font-size: 1.2rem; font-weight: bold; color: #2D7D32;">12</div>
+                                        <div style="font-size: 0.6rem; color: #666;">Posts Publicados</div>
+                                    </div>
+                                    <div
+                                        style="background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #ddd; border-left: 4px solid #FF6B35;">
+                                        <div style="font-size: 1.2rem; font-weight: bold; color: #2D7D32;">1.2K</div>
+                                        <div style="font-size: 0.6rem; color: #666;">Total de Visualizações</div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #ddd;">
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                        <div style="font-weight: bold; font-size: 0.9rem;">Cupons Recentes</div>
+                                        <div
+                                            style="background: #2D7D32; color: white; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.6rem;">
+                                            Criar Cupom</div>
+                                    </div>
+                                    <div style="border: 1px solid #ddd; border-radius: 4px;">
+                                        <div
+                                            style="background: #f8f9fa; padding: 0.5rem; border-bottom: 1px solid #ddd; font-size: 0.6rem; font-weight: bold;">
+                                            <div
+                                                style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 0.5rem;">
+                                                <span>Título</span><span>Desconto</span><span>Categoria</span><span>Status</span><span>Válido
+                                                    até</span><span>Ações</span>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 0.5rem; font-size: 0.6rem; border-bottom: 1px solid #ddd;">
+                                            <div
+                                                style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 0.5rem; align-items: center;">
+                                                <span>30% OFF na primeira compra</span>
+                                                <span>30%</span>
+                                                <span>Alimentação</span>
+                                                <span
+                                                    style="background: #D4EDDA; color: #2D7D32; padding: 0.2rem 0.4rem; border-radius: 10px; font-size: 0.5rem;">Ativo</span>
+                                                <span>30/10/2025</span>
+                                                <span>
+                                                    <span
+                                                        style="background: #f8f9fa; color: #2D7D32; padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.5rem; margin-right: 0.2rem;">Editar</span>
+                                                    <span
+                                                        style="background: #FF6B35; color: white; padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.5rem;">Excluir</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Dashboard:</strong> Visão geral com métricas, estatísticas em tempo real e gerenciamento
+                        de cupons.</p>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-title">Gestão de Cupons</div>
+                    <div class="screenshot-mockup">
+                        <div class="desktop-mockup">
+                            <div class="browser-bar">
+                                <div class="browser-dots">
+                                    <div class="dot red"></div>
+                                    <div class="dot yellow"></div>
+                                    <div class="dot green"></div>
+                                </div>
+                            </div>
+                            <div class="mockup-content">
+                                <div
+                                    style="background: linear-gradient(135deg, #2D7D32, #4CAF50); color: white; padding: 1rem; margin: -1rem -1rem 1rem -1rem;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div style="font-weight: bold; font-size: 0.9rem;">AECCGA</div>
+                                        <div style="display: flex; gap: 1rem; font-size: 0.7rem;">
+                                            <span>Dashboard</span>
+                                            <span
+                                                style="background: rgba(255,255,255,0.2); padding: 0.3rem 0.6rem; border-radius: 4px;">Cupons</span>
+                                            <span>Posts</span>
+                                            <span>Sair</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                    <div style="font-weight: bold; font-size: 1rem;">Gerenciar Cupons</div>
+                                    <div
+                                        style="background: #2D7D32; color: white; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.6rem;">
+                                        Criar Novo Cupom</div>
+                                </div>
+                                <div
+                                    style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #ddd;">
+                                    <div style="border: 1px solid #ddd; border-radius: 4px;">
+                                        <div
+                                            style="background: #f8f9fa; padding: 0.5rem; border-bottom: 1px solid #ddd; font-size: 0.6rem; font-weight: bold;">
+                                            <div
+                                                style="display: grid; grid-template-columns: 1.5fr 2fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr 1fr; gap: 0.3rem;">
+                                                <span>Título</span><span>Descrição</span><span>Desconto</span><span>Categoria</span><span>Status</span><span>Criado</span><span>Válido</span><span>Usos</span><span>Ações</span>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 0.5rem; font-size: 0.5rem; border-bottom: 1px solid #ddd;">
+                                            <div
+                                                style="display: grid; grid-template-columns: 1.5fr 2fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr 1fr; gap: 0.3rem; align-items: center;">
+                                                <span>30% OFF primeira compra</span>
+                                                <span>Válido para compras acima de R$ 15,00</span>
+                                                <span>30%</span>
+                                                <span>Alimentação</span>
+                                                <span
+                                                    style="background: #D4EDDA; color: #2D7D32; padding: 0.2rem 0.3rem; border-radius: 10px; font-size: 0.4rem;">Ativo</span>
+                                                <span>15/09/2025</span>
+                                                <span>30/10/2025</span>
+                                                <span>87</span>
+                                                <span>
+                                                    <span
+                                                        style="background: #f8f9fa; color: #2D7D32; padding: 0.2rem 0.3rem; border-radius: 3px; font-size: 0.4rem; margin-right: 0.2rem;">Ed</span>
+                                                    <span
+                                                        style="background: #FF6B35; color: white; padding: 0.2rem 0.3rem; border-radius: 3px; font-size: 0.4rem;">Ex</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 0.5rem; font-size: 0.5rem; border-bottom: 1px solid #ddd;">
+                                            <div
+                                                style="display: grid; grid-template-columns: 1.5fr 2fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr 1fr; gap: 0.3rem; align-items: center;">
+                                                <span>Pão Francês Especial</span>
+                                                <span>Pão quentinho direto do forno</span>
+                                                <span>R$ 2,00</span>
+                                                <span>Alimentação</span>
+                                                <span
+                                                    style="background: #D4EDDA; color: #2D7D32; padding: 0.2rem 0.3rem; border-radius: 10px; font-size: 0.4rem;">Ativo</span>
+                                                <span>10/09/2025</span>
+                                                <span>15/11/2025</span>
+                                                <span>156</span>
+                                                <span>
+                                                    <span
+                                                        style="background: #f8f9fa; color: #2D7D32; padding: 0.2rem 0.3rem; border-radius: 3px; font-size: 0.4rem; margin-right: 0.2rem;">Ed</span>
+                                                    <span
+                                                        style="background: #FF6B35; color: white; padding: 0.2rem 0.3rem; border-radius: 3px; font-size: 0.4rem;">Ex</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div style="padding: 0.5rem; font-size: 0.5rem;">
+                                            <div
+                                                style="display: grid; grid-template-columns: 1.5fr 2fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr 1fr; gap: 0.3rem; align-items: center;">
+                                                <span>Combo Café da Manhã</span>
+                                                <span>Café + pão na chapa + suco natural</span>
+                                                <span>25%</span>
+                                                <span>Alimentação</span>
+                                                <span
+                                                    style="background: #FFF3CD; color: #FF6B35; padding: 0.2rem 0.3rem; border-radius: 10px; font-size: 0.4rem;">Pendente</span>
+                                                <span>20/09/2025</span>
+                                                <span>31/12/2025</span>
+                                                <span>0</span>
+                                                <span>
+                                                    <span
+                                                        style="background: #f8f9fa; color: #2D7D32; padding: 0.2rem 0.3rem; border-radius: 3px; font-size: 0.4rem; margin-right: 0.2rem;">Ed</span>
+                                                    <span
+                                                        style="background: #FF6B35; color: white; padding: 0.2rem 0.3rem; border-radius: 3px; font-size: 0.4rem;">Ex</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Cupons:</strong> Gestão completa com tabela detalhada, controle de status e métricas de
+                        uso.</p>
+                </div>
+
+                <div class="screenshot-item">
+                    <div class="screenshot-title">Modal de Criação</div>
+                    <div class="screenshot-mockup">
+                        <div class="desktop-mockup">
+                            <div class="browser-bar">
+                                <div class="browser-dots">
+                                    <div class="dot red"></div>
+                                    <div class="dot yellow"></div>
+                                    <div class="dot green"></div>
+                                </div>
+                            </div>
+                            <div class="mockup-content" style="background: rgba(0,0,0,0.5); position: relative;">
+                                <div
+                                    style="background: white; padding: 1.5rem; border-radius: 12px; margin: 1rem auto; max-width: 400px;">
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                        <div style="font-weight: bold; font-size: 0.9rem;">Criar Novo Cupom</div>
+                                        <div style="font-size: 1.2rem; cursor: pointer;">×</div>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                        <div>
+                                            <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">
+                                                Título do Cupom</div>
+                                            <div
+                                                style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.6rem;">
+                                                Ex: 20% OFF na primeira compra</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">
+                                                Categoria</div>
+                                            <div
+                                                style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.6rem;">
+                                                Selecione uma categoria ▼</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">
+                                                Tipo de Desconto</div>
+                                            <div
+                                                style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.6rem;">
+                                                Selecione o tipo ▼</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">
+                                                Valor do Desconto</div>
+                                            <div
+                                                style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.6rem;">
+                                                Ex: 20 ou 15.00</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">
+                                                Data de Validade</div>
+                                            <div
+                                                style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.6rem;">
+                                                dd/mm/aaaa</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">
+                                                Limite de Uso</div>
+                                            <div
+                                                style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.6rem;">
+                                                Ex: 100</div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 1rem;">
+                                        <div style="font-size: 0.7rem; font-weight: bold; margin-bottom: 0.3rem;">
+                                            Descrição</div>
+                                        <div
+                                            style="border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; font-size: 0.6rem; height: 60px; background: #f9f9f9;">
+                                            Descreva as condições e detalhes do cupom...</div>
+                                    </div>
+                                    <div
+                                        style="display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1rem;">
+                                        <div
+                                            style="border: 2px solid #2D7D32; color: #2D7D32; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.7rem;">
+                                            Cancelar</div>
+                                        <div
+                                            style="background: #2D7D32; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.7rem;">
+                                            Criar Cupom</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Modal:</strong> Interface para criação e edição de cupons com formulário completo e
+                        validação.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Especificações Técnicas -->
+        <div class="section">
+            <h2 class="section-title">Especificações Técnicas</h2>
+            <div class="tech-specs">
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <span class="spec-icon">🎨</span>
+                        <div class="spec-title">Design</div>
+                        <div class="spec-desc">Interface moderna e responsiva<br />Cores da marca (Verde e
+                            Laranja)<br />UX/UI otimizada</div>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-icon">📱</span>
+                        <div class="spec-title">Mobile-First</div>
+                        <div class="spec-desc">Design responsivo<br />Otimizado para smartphones<br />Navegação
+                            intuitiva</div>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-icon">⚡</span>
+                        <div class="spec-title">Performance</div>
+                        <div class="spec-desc">Carregamento rápido<br />Transições suaves<br />CSS moderno</div>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-icon">🔧</span>
+                        <div class="spec-title">Tecnologias</div>
+                        <div class="spec-desc">HTML5 + CSS3<br />JavaScript Vanilla<br />Sem dependências</div>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-icon">📊</span>
+                        <div class="spec-title">Funcionalidades</div>
+                        <div class="spec-desc">CRUD completo<br />Sistema de modais<br />Navegação SPA</div>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-icon">🎯</span>
+                        <div class="spec-title">Acessibilidade</div>
+                        <div class="spec-desc">Navegação por teclado<br />Contraste adequado<br />Semântica HTML</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2 class="cta-title">Sistema Pronto para Implementação</h2>
+            <p>O sistema AECCGA está completo e funcional, oferecendo uma experiência moderna tanto para consumidores
+                quanto para estabelecimentos parceiros.</p>
+            <div class="cta-buttons">
+                <a href="primeiro.html" class="btn btn-primary">Ver App Mobile</a>
+                <a href="site.html" class="btn btn-secondary">Ver Painel Web</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
